@@ -1,1 +1,29 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<pair<int,int>>res;
+        sort(nums.begin(),nums.end());
+        int n = nums.size()-1;
 
+        int l = 0;
+        int r = n-1;
+
+        while(l<r){
+            int sum = nums[l]+nums[r];
+            if(sum==target){
+                res.push_back(make_pair(nums[l],nums[r]));
+                l++;
+                r--;
+            }
+            else if(sum<target){
+                l++;
+            }
+            else{
+                r--;
+            }
+        }
+        sort(res.begin(),res.end());
+        return res;
+        
+    }
+};
